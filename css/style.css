@@ -42,6 +42,7 @@ textarea {
   --INFO-COLOR: #2194f3;
 
   /* DIMENSIONS */
+  --HERO-HEIGHT-SMALL: 850px;
   --HERO-HEIGHT: 600px;
 }
 
@@ -165,7 +166,7 @@ body {
 /* || HERO */
 .hero {
   position: relative;
-  height: var(--HERO-HEIGHT);
+  height: var(--HERO-HEIGHT-SMALL);
   background-color: var(--SILVER);
   display: flex;
   flex-direction: row;
@@ -176,12 +177,11 @@ body {
 
 .hero__blue-panel {
   position: absolute;
-  left: -100px;
-  height: var(--HERO-HEIGHT);
-  width: 75%;
-  min-width: 700px;
+  height: calc(var(--HERO-HEIGHT-SMALL) / 2);
+  width: 100%;
+  top: 0;
   background-color: var(--PRIMARY-COLOR);
-  transform: skewX(-10deg);
+  clip-path: polygon(0 0, 100% 0%, 100% calc(var(--HERO-HEIGHT-SMALL) / 2 - 40px), 0% 100%);
 }
 
 .hero__top-figure {
@@ -215,7 +215,7 @@ body {
 }
 
 .hero__toolbar-nav {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -240,39 +240,233 @@ body {
 }
 
 .hero__toolbar-buttons {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   gap: 14px;
 }
 
 .hero__info {
-      position: absolute;
-  top: 175px;
+  position: absolute;
+  top: 120px;
   left: 0;
-  min-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
-  margin: 0 130px;
+  margin: 0 16px;
 }
 
 .hero__info h1 {
-    color: var(--SILVER);
-    font-size: 1.7rem;
+  color: var(--SILVER);
+  font-size: 1.7rem;
 }
 
 .hero__info p {
-        font-size: 1rem;
-    color: var(--SILVER);
+  font-size: 1rem;
+  color: var(--SILVER);
 }
 
 .hero__info-spacer {
-    width: 40px;
-    height: 5px;
-    background-color: var(--CYAN);
-    border: none;
-    border-radius: 2px;
+  width: 40px;
+  height: 5px;
+  background-color: var(--CYAN);
+  border: none;
+  border-radius: 2px;
+}
+
+.hero__lucy {
+  position: absolute;
+  top: 450px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2px;
+}
+
+.hero__lucy-img {
+  width: 50%;
+  height: auto;
+}
+
+.hero__lucy-card {
+  width: 60%;
+  height: auto;
+
+}
+
+.hero__mark {
+  position: absolute;
+  top: 620px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2px;
+}
+
+.hero__mark-img {
+  width: 30%;
+  height: auto;
+}
+
+.hero__mark-card {
+  width: 70%;
+  height: auto;
+
+}
+
+.hero__lucy-card img {
+  width: 100%;
+  height: auto;
+}
+
+.hero__mark-card img {
+  padding-top: 40px;
+  width: 100%;
+  height: auto;
+}
+
+
+/* || SMALL */
+@media screen and (min-width: 576px) {}
+
+/* || MEDIUM */
+@media screen and (min-width: 768px) {}
+
+/* || LARGE */
+@media screen and (min-width: 992px) {
+
+    .menu-button {
+        display: none;
+    }
+
+
+  .hero {
+    position: relative;
+    height: var(--HERO-HEIGHT);
+    background-color: var(--SILVER);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero__blue-panel {
+    position: absolute;
+    height: var(--HERO-HEIGHT);
+    background-color: var(--PRIMARY-COLOR);
+    clip-path: polygon(0 0, 70% 0%, 60% 100%, 0% 100%);
+  }
+
+  .hero__info {
+    position: absolute;
+    top: 175px;
+    left: 0;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+    margin-left: 130px;
+  }
+
+  .hero__top-figure {
+    position: absolute;
+    top: 0;
+    left: -20%;
+  }
+
+  .hero__bottom-figure {
+    position: absolute;
+    bottom: 0px;
+    left: -30%;
+    transform: scaleY(-1);
+  }
+
+
+  .hero__lucy {
+    position: absolute;
+    top: 130px;
+    right: 30px;
+    width: 45%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2px;
+  }
+
+  .hero__lucy-img {
+    width: 50%;
+    height: auto;
+  }
+
+  .hero__lucy-card {
+    width: 50%;
+    height: auto;
+
+  }
+
+  .hero__mark {
+    position: absolute;
+    top: 350px;
+    right: 30px;
+    width: 35%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2px;
+  }
+
+  .hero__mark-img {
+    width: 30%;
+    height: auto;
+  }
+
+  .hero__mark-card {
+    width: 70%;
+    height: auto;
+  }
+
+  .hero__toolbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero__toolbar-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+}
+
+/* || XL  */
+@media screen and (min-width: 1200px) {}
+
+
+@keyframes showMenu {
+    0% {
+        transform: scaleY(0);
+    }
+
+    80% {
+        transform: scaleY(1.2);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
 }
